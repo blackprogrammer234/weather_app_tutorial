@@ -17,7 +17,7 @@ The waether tracker app was created to brush up on implementing the BLoC pattern
 Getting Started
 
 ## Prerequisites
-    - Running the flutter SDK: https://docs.flutter.dev/get-started/install?gad_source=1&gclid=Cj0KCQiAkJO8BhCGARIsAMkswyhp9RL-aIffhzmI4AfFazWH5DMRye9mM4Vu8kPOyB8Mikj6GMgqm2caAu8LEALw_wcB&gclsrc=aw.ds
+    - Running the flutter SDK: [Install Flutter](https://docs.flutter.dev/get-started/install?gad_source=1&gclid=Cj0KCQiAkJO8BhCGARIsAMkswyhp9RL-aIffhzmI4AfFazWH5DMRye9mM4Vu8kPOyB8Mikj6GMgqm2caAu8LEALw_wcB&gclsrc=aw.ds)
     - Code editor (e.g., VS Code, Android Studio)
 
 ## Installation
