@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(30, 10, 30, 20),
+          //The BlocBuilder is a widget that listen to the state of the bloc and rebuild the widget based on the state of the bloc
           child: BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
             builder: (context, state) {
               if (state is WeatherBlocSuccess) {
@@ -73,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
+                              //Render the area name from the weather data
                               '${state.weather.areaName}',
                               style: TextStyle(
                                   color: Colors.white,
@@ -88,6 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             displayWeatherCondition(state.weather.weatherConditionCode!),
                             Center(
+                              //Render the temperature from the weather data
                               child: Text(
                                 '${state.weather.temperature!.fahrenheit!.round()} °F',
                                 style: TextStyle(
@@ -106,6 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             Center(
+                              //Render the current time and day
                               child: Text(
                                 "${getCurrentTimeAndDay()}",
                                 style: TextStyle(
@@ -169,6 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               fontWeight: FontWeight.w300),
                                         ),
                                         Text(
+                                          //Render the sunset time from the weather data after formnsatting it
                                           DateFormat().add_jm().format(state.weather.sunset!),
                                           style: TextStyle(
                                               color: Colors.white,
@@ -207,6 +212,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               color: Colors.white,
                                               fontWeight: FontWeight.w300),
                                         ),
+                                        //Render the max temperature from the weather data
                                         Text(
                                           '${state.weather.tempMax!.fahrenheit!.round()} °F',
                                           style: TextStyle(
@@ -236,6 +242,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               color: Colors.white,
                                               fontWeight: FontWeight.w300),
                                         ),
+                                        //Render the min temperature from the weather data
                                         Text(
                                         '${state.weather.tempMin!.fahrenheit!.round()} °F',
                                           style: TextStyle(

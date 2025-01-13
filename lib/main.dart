@@ -6,6 +6,7 @@ import 'package:weather_tracker_v1/screens/home/home_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future main() async {
+  //flutter_dotenv is a Flutter package that allows you to load environment variables from a .env file in your Flutter application
   await dotenv.load(fileName: "assets/.env");
   runApp(const MyApp());
 }
@@ -17,10 +18,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      //Future builder is a widget that interact and rebuild based on the future function
+      //In nature future builder is a stateful widget
       home: FutureBuilder(
           future: _determinePosition(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
+              //**
+              // Bloc Provider take the instantance of a bloc that's in the create function and pass it to it's child using philosphy of dependency injection
+              // Now home screen or children of the homescreen can called state of the bloc using the blocbuilder v 
+              // */
+
+              //The create return the new instance of the WeatherBlocBloc and add the FetchWeather event to the bloc
+              //Homescreen and all it's descendants will have access to the WeatherBlocBloc instance
               return BlocProvider<WeatherBlocBloc>(
                 create: (context) => WeatherBlocBloc()..add(FetchWeather(snapshot.data as Position)),
                 child: HomeScreen(),
@@ -34,6 +44,11 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/**
+ * The following function is apart of the geolocation plugin which it grabbing the current position include checking if the location
+ * service are enable or not. It also request permission to access the user location if it not enable
+ */
 
 Future<Position> _determinePosition() async {
   bool serviceEnabled;
